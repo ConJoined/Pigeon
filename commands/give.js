@@ -25,7 +25,7 @@ exports.run = (Discord,client, message, args) => {
         message.reply("Oh no! Some help is on it's way! 🚑");
         const HelpEmbed = new  Discord.RichEmbed()
         .setTitle("Your Help 🚑")
-        .setDescription("Hey! I've got your help! To request me, say Pigeon, in any spelling!")
+        .setDescription("Hey! I've got your help! To request me, say pu! in any spelling! (BETA)")
         .setURL("https://discordapp.com")
         .setAuthor(message.author.username, message.author.displayAvatarURL)
         .setFooter("Requested by " + message.author.tag, message.author.displayAvatarURL)
@@ -34,7 +34,7 @@ exports.run = (Discord,client, message, args) => {
         .addField("Fun", "Pigeon, give me [blank]\nDescription:\nGives you stuff\nThings to request:\nFinobe, Beach Ball, \nMac Wait Cursor,\nHelp\n ", true)
         .addField("Informational", "Pigeon, give me help \nAlias: Pigeon, give me some help\nDescription:\nGives you help.\n ", true)
         .addBlankField(true)
-        .addField("NSFW", "To see NSFW commands, type Pigeon, nsfw help in a NSFW channel")
+        .addField("NSFW", "To see NSFW commands, type pu!nsfw help in a NSFW channel")
         .setTimestamp();
         message.author.send("Transporting help to your place...");
         message.author.send({embed: HelpEmbed});
@@ -42,7 +42,7 @@ exports.run = (Discord,client, message, args) => {
         message.reply("Oh no! Some help is on it's way! 🚑");
         const HelpEmbed = new  Discord.RichEmbed()
         .setTitle("Your Help 🚑")
-        .setDescription("Hey! I've got your help! To request me, say Pigeon, in any spelling!")
+        .setDescription("Hey! I've got your help! To request me, say pu! in any spelling! (BETA)")
         .setURL("https://discordapp.com")
         .setAuthor(message.author.username, message.author.displayAvatarURL)
         .setFooter("Requested by " + message.author.tag, message.author.displayAvatarURL)
@@ -51,7 +51,7 @@ exports.run = (Discord,client, message, args) => {
         .addField("Fun", "Pigeon, give me [blank]\nDescription:\nGives you stuff\nThings to request:\nFinobe, Beach Ball, \nMac Wait Cursor,\nHelp\n ", true)
         .addField("Informational", "Pigeon, give me help \nAlias: Pigeon, give me some help\nDescription:\nGives you help.\n ", true)
         .addBlankField(true)
-        .addField("NSFW", "To see NSFW commands, type Pigeon, nsfw help in a NSFW channel")
+        .addField("NSFW", "To see NSFW commands, type pu!nsfw help in a NSFW channel")
         .setTimestamp();
         message.author.send("Transporting help to your place...");
         message.author.send({embed: HelpEmbed});
