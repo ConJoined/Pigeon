@@ -11,6 +11,10 @@ function clean(text) {
     return text;
 };
 exports.run = (Discord,client, message, args) => {
+  if (message.channel.type === "dm") { // Kill switch for if the message is in DMs
+        message.reply("You can't use this command in DMs.")
+        return;
+      }
       const argumentals = args.join(" ");
       const lowerargumentals = argumentals.toLowerCase();
       if (lowerargumentals === "me a beach ball") {
