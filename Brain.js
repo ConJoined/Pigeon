@@ -16,14 +16,16 @@ fs.readdir("./events/", (err, files) => {
 });
 
 client.on("message", message => {
-  const pingprefix = new RegExp(`^<@!?'` + client.user.id + `> `);
   const lowercasemsg = message.content.toLowerCase();
   if (message.author.bot) return;
   let prefix = false;
+  const pingprefix = new RegExp(`^<@!?'` + client.user.id + `> `);
+  prefix = pingprefix.match(message.content) ? message.content.match(pingprefix)[0] + " " : prefix;
+  if (!prefix) {
   for(const thisPrefix of prefixes) {
     if(lowercasemsg.content.startsWith(thisPrefix)) prefix = thisPrefix;
   }
-  prefix = pingprefix.match(message.content) ? message.content.match(pingprefix)[0] + " " : prefix;
+  }
   if(!prefix) return;
 
   // This is the best way to define args. Trust me.
