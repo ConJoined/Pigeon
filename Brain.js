@@ -2,7 +2,7 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
 const fs = require("fs");
-const prefix = "pro pigeon, ";
+const prefixes = ["pro pigeon unstable, ", "<@450288947797426198> ", "ppu!"];
 
 // This loop reads the /events/ folder and attaches each event file to the appropriate event.
 fs.readdir("./events/", (err, files) => {
@@ -18,7 +18,11 @@ fs.readdir("./events/", (err, files) => {
 client.on("message", message => {
   const lowercasemsg = message.content.toLowerCase();
   if (message.author.bot) return;
-  if(lowercasemsg.indexOf(prefix) !== 0) return;
+  let prefix = false;
+  for(const thisPrefix of prefixes) {
+    if(lowercasemsg.content.startsWith(thisPrefix)) prefix = thisPrefix;
+  }
+  if(!prefix) return;
 
   // This is the best way to define args. Trust me.
   const args = message.content.slice(prefix.length).trim().split(/ +/g);
