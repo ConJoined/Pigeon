@@ -19,7 +19,7 @@ client.on("message", message => {
   const lowercasemsg = message.content.toLowerCase();
   let prefix = false;
   const prefixMention = new RegExp(`^<@!?${client.user.id}> `);
-  prefix = prefixMention.match(lowercasemsg) ? lowercasemsg.match(prefixMention)[0] + " " : prefix;
+  prefix = prefixMention.toString().match(lowercasemsg) ? lowercasemsg.match(prefixMention)[0] + " " : prefix;
   if (message.author.bot) return;
   for(const thisPrefix of prefixes) {
     if(lowercasemsg.startsWith(thisPrefix)) prefix = thisPrefix;
