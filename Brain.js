@@ -3,7 +3,6 @@ const Discord = require("discord.js");
 const client = new Discord.Client();
 const fs = require("fs");
 const prefixes = ["pro pigeon unstable, ",  "ppu!"];
-const pingprefix = new RegExp(`^<@!?${client.user.id}> `);
 
 // This loop reads the /events/ folder and attaches each event file to the appropriate event.
 fs.readdir("./events/", (err, files) => {
@@ -17,6 +16,7 @@ fs.readdir("./events/", (err, files) => {
 });
 
 client.on("message", message => {
+  const pingprefix = new RegExp(`^<@!?'` + client.user.id + `> `);
   const lowercasemsg = message.content.toLowerCase();
   if (message.author.bot) return;
   let prefix = false;
