@@ -2,7 +2,8 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
 const fs = require("fs");
-const prefixes = ["pro pigeon unstable, ", "<@450288947797426198> ", "ppu!"];
+const prefixes = ["pro pigeon unstable, ",  "ppu!"];
+const pingprefix = new RegExp(`^<@!?${client.user.id}> `);
 
 // This loop reads the /events/ folder and attaches each event file to the appropriate event.
 fs.readdir("./events/", (err, files) => {
@@ -22,6 +23,7 @@ client.on("message", message => {
   for(const thisPrefix of prefixes) {
     if(lowercasemsg.content.startsWith(thisPrefix)) prefix = thisPrefix;
   }
+  prefix = pingprefix.match(message.content) ? message.content.match(pingprefix)[0] + " " : prefix;
   if(!prefix) return;
 
   // This is the best way to define args. Trust me.
