@@ -17,10 +17,12 @@ fs.readdir("./events/", (err, files) => {
 
 client.on("message", message => {
   const lowercasemsg = message.content.toLowerCase();
-  if (message.author.bot) return;
   let prefix = false;
+  const prefixMention = new RegExp(`^<@!?${client.user.id}> `);
+  prefix = prefixMention.match(lowercasemsg) ? lowercasemsg.match(prefixMention)[0] + " " : prefix;
+  if (message.author.bot) return;
   for(const thisPrefix of prefixes) {
-    if(lowercasemsg.content.startsWith(thisPrefix)) prefix = thisPrefix;
+    if(lowercasemsg.startsWith(thisPrefix)) prefix = thisPrefix;
   }
   if(!prefix) return;
 
